@@ -1,7 +1,20 @@
-Find one valid assignment for a 5 by 5 grid (25 cells, using values 1-25 exactly once) that satisfies the following three highly restrictive constraints:
-Fixed Seed: The center cell, Row 3, Column 3, must be set to the value 13.
-C1 (Orthogonal): No two orthogonally adjacent cells (sharing a side: up, down, left, right) can contain consecutive numbers (i.e., if a cell holds N, its neighbors cannot hold N-1 or N+1).
-C2 (Diagonal): No two diagonally adjacent cells (sharing a corner) can contain numbers with a difference of exactly 2 (i.e., N and N plus or minus 2).
-C3 (Prime/Even Sum): The sum of the values in the 10 prime-numbered cells must be an even number.
-(Hint: The prime-numbered cells are Grid(1,2),Grid(1,4),Grid(2,1),Grid(2,3),Grid(3,2),Grid(3,4),Grid(4,1),Grid(4,3),Grid(5,2),Grid(5,4)).
-Submission Format: Submit the grid as a single string of 25 comma-separated integers, reading the grid row-by-row, left-to-right.
+This repository contains a collection of Java-based solvers for several constraint-driven grid puzzles. Each puzzle involves filling a grid with unique integers while respecting a specific set of adjacency and global restrictions. The solvers use backtracking with heuristics, adjacency precomputation, and optional Docker and web-API execution modes.
+The projects included are:
+1. 5×5 Grid Solver (Core Constraint Engine)
+A general solver for a 5×5 grid using unique values 1–25 under multiple spatial constraints.
+Includes:
+Orthogonal adjacency rules
+Diagonal adjacency rules
+Global parity checks
+Fixed-value seed
+Output as row-major submission strings
+2. 5×5 Median-Constraint Solver
+An extended solver that implements all baseline constraints plus an additional median requirement applied to the first row.
+The program returns the final value at a specific cell once a valid grid is found.
+3. 6×6 Rook-Constraint Solver
+A solver for a 6×6 grid using values 1–36.
+Additional logic enforces a "rook placement" requirement for a special subset of values.
+The solver prints a valid grid in submission format.
+4. 5×5 C1-Only Enumerator
+A specialized enumeration engine designed to count all 5×5 grids that satisfy only the orthogonal adjacency rule.
+Due to the combinatorial size of the search space, this tool includes optional depth and solution limits for safe experimentation.

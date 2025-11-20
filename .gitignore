@@ -1,0 +1,22 @@
+# Build output directories
+out/
+bin/
+build/
+target/
+
+# IDE files
+*.iml
+.idea/
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+
+
+# Java artifacts
+*.class
