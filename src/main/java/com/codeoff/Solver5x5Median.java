@@ -1,8 +1,8 @@
-package com.codeoff.gridmedian;
+package com.codeoff;
 
 import java.util.Arrays;
 
-public class GridSolverMedian {
+public class Solver5x5Median {
 
     private static final int SIZE = 5;
     private static final int CELL_COUNT = SIZE * SIZE;
@@ -23,10 +23,15 @@ public class GridSolverMedian {
     private final int[][] diagonalNeighbors;
     private final Integer[] fillOrder;
 
-    public GridSolverMedian() {
+    public Solver5x5Median() {
         orthogonalNeighbors = buildOrthogonalNeighbors();
         diagonalNeighbors = buildDiagonalNeighbors();
         fillOrder = buildFillOrder();
+    }
+
+    public Result solveAndGetResult() {
+        int [] g = solve();
+        return new Result(g, g[24]);
     }
 
     public int[] solve() {
@@ -162,4 +167,10 @@ public class GridSolverMedian {
             arr[i] = (coords[i][0]-1)*5 + (coords[i][1]-1);
         return arr;
     }
+}
+
+class Result {
+    public final int[] grid;
+    public final int bottomRight;
+    public Result(int[] g, int br) { this.grid=g; this.bottomRight=br; }
 }

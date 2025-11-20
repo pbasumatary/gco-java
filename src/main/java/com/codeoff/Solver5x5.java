@@ -1,4 +1,4 @@
-package com.codeoff.gridpuzzle;
+package com.codeoff;
 
 import java.util.Arrays;
 
@@ -23,7 +23,7 @@ import java.util.Arrays;
  * The grid is represented as a 1D array of length 25, in row-major order:
  * index = row * 5 + col, where row, col are 0-based.
  */
-public class GridSolver {
+public class Solver5x5 {
 
     private static final int SIZE = 5;
     private static final int CELL_COUNT = SIZE * SIZE;
@@ -51,7 +51,7 @@ public class GridSolver {
     // Order in which cells are filled during backtracking
     private final Integer[] fillOrder;
 
-    public GridSolver() {
+    public Solver5x5() {
         this.orthogonalNeighbors = buildOrthogonalNeighbors();
         this.diagonalNeighbors = buildDiagonalNeighbors();
         this.fillOrder = buildFillOrder();

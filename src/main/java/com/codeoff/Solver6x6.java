@@ -1,4 +1,4 @@
-package com.codeoff.problem3;
+package com.codeoff;
 
 import java.util.Arrays;
 
@@ -9,7 +9,7 @@ import java.util.Arrays;
  * - C1 (Orthogonal): No orthogonally adjacent cells contain consecutive integers.
  * - C5 (Rook): Numbers {1, 12, 24, 36} are all in distinct rows and distinct columns.
  */
-public class ProblemFour {
+public class Solver6x6 {
 
     private static final int SIZE = 6;
     private static final int CELL_COUNT = SIZE * SIZE;
@@ -23,7 +23,7 @@ public class ProblemFour {
     private final int[][] orthogonalNeighbors;
     private final Integer[] fillOrder;
 
-    public ProblemFour() {
+    public Solver6x6() {
         this.orthogonalNeighbors = buildOrthogonalNeighbors();
         this.fillOrder = buildFillOrder();
     }
@@ -31,7 +31,7 @@ public class ProblemFour {
     /**
      * Finds one valid assignment or returns null.
      */
-    public int[] solve() {
+    public int[][] solve() {
         int[] grid = new int[CELL_COUNT];
         boolean[] used = new boolean[37];  // 1..36
         boolean[] rookRows = new boolean[SIZE];
@@ -46,7 +46,7 @@ public class ProblemFour {
         rookCols[0] = true;
 
         if (backtrack(grid, used, rookRows, rookCols, 1)) {
-            return grid;
+            return to2D(grid);
         }
         return null;
     }
@@ -252,5 +252,12 @@ public class ProblemFour {
         });
 
         return order;
+    }
+
+    private int[][] to2D(int[] grid) {
+        int[][] m = new int[SIZE][SIZE];
+        for (int i = 0; i < CELL_COUNT; i++)
+            m[i / SIZE][i % SIZE] = grid[i];
+        return m;
     }
 }
