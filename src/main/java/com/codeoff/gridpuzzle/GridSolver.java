@@ -49,7 +49,7 @@ public class GridSolver {
     private final int[][] diagonalNeighbors;
 
     // Order in which cells are filled during backtracking
-    private final int[] fillOrder;
+    private final Integer[] fillOrder;
 
     public GridSolver() {
         this.orthogonalNeighbors = buildOrthogonalNeighbors();
@@ -254,8 +254,8 @@ public class GridSolver {
      *  - Then: remaining cells sorted by (orthogonal + diagonal) degree descending,
      *          so heavily constrained cells are filled early.
      */
-    private int[] buildFillOrder() {
-        int[] order = new int[CELL_COUNT];
+    private Integer[] buildFillOrder() {
+        Integer[] order = new Integer[CELL_COUNT];
         boolean[] used = new boolean[CELL_COUNT];
 
         // Center first
